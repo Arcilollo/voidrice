@@ -8,20 +8,22 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdtree'
-Plug 'junegunn/goyo.vim'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'jreybert/vimagit'
-Plug 'lukesmithxyz/vimling'
-Plug 'vimwiki/vimwiki'
-Plug 'bling/vim-airline'
-Plug 'tpope/vim-commentary'
-Plug 'kovetskiy/sxhkd-vim'
-Plug 'ap/vim-css-color'
+	Plug 'tpope/vim-surround'
+	Plug 'preservim/nerdtree'
+	Plug 'junegunn/goyo.vim'
+	Plug 'PotatoesMaster/i3-vim-syntax'
+	Plug 'jreybert/vimagit'
+	Plug 'lukesmithxyz/vimling'
+	Plug 'vimwiki/vimwiki'
+	Plug 'bling/vim-airline'
+	Plug 'tpope/vim-commentary'
+	Plug 'kovetskiy/sxhkd-vim'
+	Plug 'ap/vim-css-color'
+	Plug 'terryma/vim-multiple-cursors'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'Raimondi/delimitMate'
 call plug#end()
 
-set bg=light
 set go=a
 set mouse=a
 set nohlsearch
@@ -40,10 +42,10 @@ set clipboard+=unnamedplus
 	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Goyo plugin makes text more readable when writing prose:
-	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+	map <leader>f :Goyo \| set linebreak<CR>
 
 " Spell-check set to <leader>o, 'o' for 'orthography':
-	map <leader>o :setlocal spell! spelllang=en_us<CR>
+	map <leader>o :setlocal spell! spelllang=it_it<CR>
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 	set splitbelow splitright
@@ -83,8 +85,8 @@ set clipboard+=unnamedplus
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 
-" Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler "<c-r>%"<CR>
+" Compile and run a file
+	map <leader>c :w! \| !car <c-r>%<CR>
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
