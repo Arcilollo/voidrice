@@ -1,6 +1,6 @@
-# The Voidrice (Luke Smith <https://lukesmith.xyz>'s dotfiles)
+# The Voidrice (Arci's dotfiles)
 
-These are the dotfiles deployed by [LARBS](https://larbs.xyz) and as seen on [my YouTube channel](https://youtube.com/c/lukesmithxyz).
+These are the dotfiles that I use on my laptop.
 
 - Very useful scripts are in `~/.local/bin/`
 - Settings for:
@@ -36,10 +36,10 @@ Check out their links:
 
 ## Install these dotfiles
 
-Use [LARBS](https://larbs.xyz) to autoinstall everything:
+Use this command to autoinstall everything:
 
 ```
-curl -LO larbs.xyz/larbs.sh
+curl -LO raw.githubusercontent.com/Arcilollo/AARBS/master/larbs.sh
 ```
 
-or clone the repo files directly to your home directory and install [the prerequisite programs](https://github.com/LukeSmithxyz/LARBS/blob/master/progs.csv).
+or clone the repo files directly to your home directory and install [the prerequisite programs](https://github.com/Arcilollo/AARBS/blob/master/progs.csv).
