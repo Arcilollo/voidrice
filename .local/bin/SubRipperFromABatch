@@ -1,0 +1,27 @@
+#!/bin/sh
+
+if [ -x /usr/bin/ffmpeg ]
+then
+	echo "Enter the number of episodes"
+	read eps
+	echo "Enter the sub track that you want to RIP"
+	read track
+
+	for ((i = 1; i <= eps; i++))
+	do
+		if [ $i -lt 10 ]
+		then
+			ffmpeg -i Ep0$i.mkv -map 0:s:$track subs0$i.ass
+		else
+			ffmpeg -i Ep$i.mkv -map 0:s:$track subs$i.ass
+		fi
+	done
+else
+	if [ -x /usr/bin/pacman ]
+	then
+		echo "ffmpeg is not installed"
+		echo "Install it from pacman using \"pacman -Sy ffmpeg\""
+	else
+		echo "ffmpeg is not installed"
+	fi
+fi

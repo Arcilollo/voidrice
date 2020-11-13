@@ -1,0 +1,13 @@
+#!/bin/sh
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+base="${file%.*}"
+ext="${file##*.}"
+
+case "$ext" in
+	cpp) g++ "$file" -o "$base" && konsole -e bash -c "'$base' ; read -s -n 1 -p 'Press a key to continue...'" ;;
+	c) gcc "$file" -o "$base" && konsole -e bash -c "'$base' ; read -s -n 1 -p 'Press a key to continue...'" ;;
+	py) konsole -e bash -c "python '$file' ; read -s -n 1 -p 'Press a key to continue...'" ;;
+	java) javac "$file" && konsole -e bash -c "java '$base' ; read -s -n 1 -p 'press a key to continue...'" ;;
+esac

@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [ -x /usr/bin/ffmpeg ]
+then
+	echo "Enter the number of episodes"
+	read eps
+
+	for ((i = 1; i <= eps; i++))
+	do
+		if [ $i -lt 10 ]
+		then
+			ffmpeg -i Ep0$i.mkv -c:v libx264 -preset medium -crf 21 -pix_fmt yuv420p -c:a flac -b:a 1024k Removed_Ep0$i.mkv
+		else
+			ffmpeg -i Ep$i.mkv -c:v libx264 -preset medium -crf 21 -pix_fmt yuv420p -c:a flac -b:a 1024k Removed_Ep$i.mkv
+		fi
+	done
+else
+	if [ -x /usr/bin/pacman ]
+	then
+		echo "ffmpeg is not installed"
+		echo "Install it from pacman using \"pacman -Sy ffmpeg\""
+	else
+		echo "ffmpeg is not installed"
+	fi
+fi
